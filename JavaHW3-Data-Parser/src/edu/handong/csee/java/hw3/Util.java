@@ -9,9 +9,10 @@ public class Util {
 	static int startIndex;
 	static int endIndex;
 
-	public static void findKeyWords(String originStr, String key) {
+	public static int findKeyWords(String originStr, String key) {
 		//키워드가 존재하는 인덱스의 시작값을 startIndex에 저장한다.
-		startIndex = originStr.indexOf(key);
+		startIndex = originStr.indexOf(key + "\"");
+		return startIndex;
 	}
 	
 	public static void getValue(String originStr, String key) {

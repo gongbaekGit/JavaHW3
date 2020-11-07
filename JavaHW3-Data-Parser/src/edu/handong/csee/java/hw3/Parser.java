@@ -18,13 +18,20 @@ public class Parser {
 	}
 	
 	public void parseOne() {
+		
+		while(Util.findKeyWords(str, key)>=0) {
+			Util.getValue(str, key);
+			Util.makeNewstr(str);
+		}
+		
+		
+		
+		
+		//한 번 찾는데 필요한 로
+		/*
 		Util.findKeyWords(str, key);
 		Util.getValue(str, key);
 		Util.makeNewstr(str);
-		
-		Util.findKeyWords(str, key);
-		Util.getValue(str, key);
-		Util.makeNewstr(str);
-		
+		*/
 	}
 }
