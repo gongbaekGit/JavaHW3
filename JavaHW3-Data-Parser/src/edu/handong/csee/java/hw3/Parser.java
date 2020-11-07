@@ -3,17 +3,28 @@ package edu.handong.csee.java.hw3;
 public class Parser {
 	
 	private String key;
-
+	public static String str;
+	public static String newstr;
+	public static String value;
+	
+	public Parser(String korData, String keyWords) {
+		str = korData;
+		key = keyWords;
+		System.out.print("key words is " + key + "\n");
+	}
+	
 	public String getKey() {
 		return key;
 	}
-
-	public void setKey(String key) {
-		this.key = key;
-	}
 	
-	public void printOneResult() {
-		//todo 로직을 추가
-		
+	public void parseOne() {
+		Util.findKeyWords(str, key);
+		Util.getValue(str, key);
+		Util.makeNewstr(str);
+		/*
+		Util.findKeyWords(str, key);
+		Util.getValue(str, key);
+		Util.makeNewstr(str);
+		*/
 	}
 }

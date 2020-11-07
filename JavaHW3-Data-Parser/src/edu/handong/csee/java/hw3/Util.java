@@ -5,42 +5,39 @@ package edu.handong.csee.java.hw3;
  * @return
  */
 public class Util {
-	/**
-	 * search that string contain key words. 
-	 * if find, return starting index pointing value.
-	 * @param str . string that we searched
-	 * @param key . key word. that we seaching for.
-	 * @return starting index pointing value
-	 */
-	public static int searchLine(String str, String key) {
-		
+	
+	static int startIndex;
+	static int endIndex;
+
+	public static void findKeyWords(String originStr, String key) {
+		//키워드가 존재하는 인덱스의 시작값을 startIndex에 저장한다.
+		startIndex = originStr.indexOf(key);
 	}
 	
-	/**
-	 * trim string that starting from the next line.
-	 * @return String. contain text that not yet searched.
-	 * @param String. origianl string that  we searched.
-	 */
-	public static String nextLine(String str) {
+	public static void getValue(String originStr, String key) {
+		// 키워드가 담고있는 값이 끝나는 인덱스를 startIndex에 저장한다.
+		//일단 value가 object인 경우는 생각하지 않는다.
+		//+4를 +3으로 바꾸면 value 앞의 공백이 포함된다.
+		String tempStr = originStr.substring(startIndex + key.length()+4);
+		//+0을 +1로 바꾸면 개행까지 완료가 됩니다.
+		endIndex = tempStr.indexOf('\n') + startIndex + key.length()+4 +1;
 		
+		//Parser 클래스의 value 변수에 값을 할당한다.
+		Parser.value = originStr.substring(startIndex + key.length() + 4, endIndex);
+		System.out.print(Parser.value);
 	}
 	
-	/**
-	 * treat object json text. 
-	 * this method make new string for object-typed value.
-	 * @return String.
-	 * @param String. original String that searched.
-	 */
-	public static String treatObject(String str) {
-		
-	}
-	/**
-	 * check that string is done or not.
-	 * If string is done, return 1.
-	 * @return int
-	 * @param String. original String that searched.
-	 */
-	public int checkEndString(String str) {
-		
+	public static void makeNewstr(String originStr){
+	//Parser 클래스의 newStr에 새로운 문장, 다음 탐색 대상인 문장을 저장한다.
+	//앞에서 개행문자를 포함했기 때문에 + 0 입니다.
+	Parser.str = originStr.substring(endIndex + Parser.value.length()-4);
+	//System.out.print("\n다음 탐색 대상 문장을 만들었습니다. \n" + Parser.str);	
 	}
 }
+
+
+
+
+
+
+

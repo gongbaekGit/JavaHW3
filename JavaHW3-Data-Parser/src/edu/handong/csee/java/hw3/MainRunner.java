@@ -189,10 +189,7 @@ public class MainRunner {
 			+ "}";
     
     public static void main(String[] args) {
-    	
-    	MainRunner m = new MainRunner();
-    	
-    	System.out.println(""+ m.korData.length());
-    	
+    	Parser parse = new Parser(new MainRunner().korData, args[0]);
+    	parse.parseOne();
     }
 }
