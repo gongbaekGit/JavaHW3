@@ -21,10 +21,10 @@ public class Parser {
 		Util.findKeyWords(str, key);
 		Util.getValue(str, key);
 		Util.makeNewstr(str);
-		/*
+		
 		Util.findKeyWords(str, key);
 		Util.getValue(str, key);
 		Util.makeNewstr(str);
-		*/
+		
 	}
 }
